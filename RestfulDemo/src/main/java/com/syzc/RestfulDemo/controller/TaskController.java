@@ -43,7 +43,7 @@ public class TaskController
 	}
 	@GetMapping(value = "api/tasks")
 	public String getAll()
-	{//获取全部
+	{//获取全部的任务列表
 		JSONArray tasks = null;
 		JSONObject json = new JSONObject();
 		tasks = tasksData.findAll();

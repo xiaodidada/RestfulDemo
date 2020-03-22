@@ -1,10 +1,4 @@
 package com.syzc.RestfulDemo.model;
-//
-//{
-//    "id": 1,
-//    "content": "Restful API homework",
-//    "createdTime": "2019-05-15T00:00:00Z"
-//  }
 /**
  * 
  * @author 25659

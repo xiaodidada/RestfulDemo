@@ -50,14 +50,13 @@ public class TasksData {
 				br.close();
 				fileReader.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	    return sb.toString();
 	}
 	/**
-	 * 写入文件
+	 * 写入json文件
 	 * @return
 	 */
 	public static String writeFile(String json)
