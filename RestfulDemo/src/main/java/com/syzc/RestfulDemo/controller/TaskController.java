@@ -57,7 +57,7 @@ public class TaskController
 		return json.toJSONString();
 	}
 	@GetMapping(value = "/api/task")
-	public String getbyId(@RequestParam int id)
+	public String getById(@RequestParam int id)
 	{//返回一个指定ID的任务列
 		JSONObject json = new JSONObject();
 		JSONObject task = tasksData.getById(id);
@@ -68,6 +68,17 @@ public class TaskController
 			json.put("data", task);
 			json.put("status", "成功获取对应任务");
 		}
+		return json.toJSONString();
+	}
+	@PostMapping(value = "/api/task")
+	public String deleteById(@RequestParam int id)
+	{//返回一个指定ID的任务列
+		JSONObject json = new JSONObject();
+		boolean check = tasksData.deleteById(id);
+		if(check)
+			json.put("status", "成功删除ID为"+id+"的任务");
+		else
+			json.put("status", "未找到ID为"+id+"的任务，无法执行删除操作");
 		return json.toJSONString();
 	}
 }
