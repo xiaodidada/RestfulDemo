@@ -14,8 +14,9 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')//Ö§³Öjunit4
 	compile 'com.alibaba:fastjson:1.2.31'
+	
 }
 
 test {
