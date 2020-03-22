@@ -38,7 +38,20 @@ public class TaskDataTest {
 	public void test_getById2() 
 	{
 		JSONObject json = tasksData.getById(-1);
-		assertEquals(null,json.toJSONString());
+		assertEquals(null,json);
 	}
-
+	//【通过id删除任务】 测试：id=1
+	@Test
+	public void test_deleteById1() 
+	{
+		boolean check = tasksData.deleteById(0);
+		assertEquals(true,check);
+	}
+	//【通过id删除任务】测试:id=-1 -不存在
+	@Test
+	public void test_deleteById2() 
+	{
+		boolean check = tasksData.deleteById(-1);
+		assertEquals(false,check);
+	}
 }

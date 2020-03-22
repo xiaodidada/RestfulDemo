@@ -147,4 +147,30 @@ public class TasksData {
 		}
 		return null;
 	}
+	/**
+	 * 通过id删除任务
+	 * @param id
+	 * @return
+	 */
+	public boolean deleteById(int id)
+	{
+		JSONArray jsonArray = JSONArray.parseArray(readFile());
+		if(jsonArray == null)
+			return false;
+		else
+		{
+			for(int i=0;i<jsonArray.size();i++)
+			{
+	            JSONObject json = jsonArray.getJSONObject(i);
+	            int search_id =(int)json.get("id"); //得到每个task中的id值
+	            if(id==search_id)
+	            {
+	            	jsonArray.remove(i);
+	            	writeFile(jsonArray.toJSONString());
+	            	return true;
+	            }
+			}
+			return false;
+		}
+	}
 }
