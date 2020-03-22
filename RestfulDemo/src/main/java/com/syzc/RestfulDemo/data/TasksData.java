@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -123,5 +124,27 @@ public class TasksData {
 		return jsonArray;
 		
 	}
-
+	/**
+	 * 返回一个指定ID的任务列
+	 * @param id
+	 * @return
+	 */
+	public JSONObject getById(int id)
+	{
+		JSONArray jsonArray = JSONArray.parseArray(readFile());
+		if(jsonArray == null)
+			return null;
+		else
+		{
+			for(int i=0;i<jsonArray.size();i++)
+			{
+	            JSONObject json = jsonArray.getJSONObject(i);
+	            int search_id =(int)json.get("id"); //得到每个task中的id值
+	            if(id==search_id){
+	            	return json;//返回该任务
+	            }
+			}
+		}
+		return null;
+	}
 }

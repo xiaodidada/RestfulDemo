@@ -30,14 +30,14 @@ public class TaskDataTest {
 	@Test
 	public void test_getById1() 
 	{
-		JSONObject json = tasksData.getbyId(1);
+		JSONObject json = tasksData.getById(1);
 		assertEquals("{\"createdTime\":\"2020-05-15T00:00:00Z\",\"id\":1,\"content\":\"第二次测试\"}",json.toJSONString());
 	}
 	//【通过id获取任务】测试:id=-1 -不存在
 	@Test
 	public void test_getById2() 
 	{
-		JSONObject json = tasksData.getbyId(-1);
+		JSONObject json = tasksData.getById(-1);
 		assertEquals(null,json.toJSONString());
 	}
 

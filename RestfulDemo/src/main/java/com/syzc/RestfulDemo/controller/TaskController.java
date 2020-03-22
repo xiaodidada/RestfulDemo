@@ -41,7 +41,7 @@ public class TaskController
 			json.put("status", "添加失败，id重复");
 		return json.toJSONString();
 	}
-	@GetMapping(value = "api/tasks")
+	@GetMapping(value = "/api/tasks")
 	public String getAll()
 	{//获取全部的任务列表
 		JSONArray tasks = null;
@@ -53,6 +53,20 @@ public class TaskController
 		{
 			json.put("data", tasks);
 			json.put("status", "成功获取任务列表");
+		}
+		return json.toJSONString();
+	}
+	@GetMapping(value = "/api/task")
+	public String getbyId(@RequestParam int id)
+	{//返回一个指定ID的任务列
+		JSONObject json = new JSONObject();
+		JSONObject task = tasksData.getById(id);
+		if(task == null)
+			json.put("status", "未找到对应的任务");
+		else
+		{
+			json.put("data", task);
+			json.put("status", "成功获取对应任务");
 		}
 		return json.toJSONString();
 	}
